@@ -23,12 +23,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * 微信分享
- * @param shareInfo 获取分享信息返回的内容  必须
- * @param shareScene 分享方式 0-好友 1-朋友圈
+ * @param func 埋点标识  必须
+ * @param platform 分享平台 wechat
+ * @param region 地区码  非必须
+ * @param transmits 透传参数，原样返回  非必须
+ * @param ext 扩展字段，拼接url用  非必须
  */
-- (void)shareToWWithShareInfo:(NSDictionary *)shareInfo
-                   shareScene:(NSInteger)shareScene
-                     complete:(void(^)(BOOL success))complete;
+- (void)shareToWWithFunc:(NSString *)func
+                platform:(NSString *)platform
+                  region:(NSString *)region
+               transmits:(NSDictionary * _Nullable)transmits
+                     ext:(NSDictionary * _Nullable)ext
+                complete:(void(^)(BOOL success))complete;
 
 /**
  * 微信登录

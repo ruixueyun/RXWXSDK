@@ -22,14 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)configUniversallink:(NSString *)universallink;
 
 /**
- * 微信分享（直接调用，不需要获取分享信息）
+ * 微信分享
  * @param shareInfo 获取分享信息返回的内容  必须
  */
 - (void)shareToWWithShareInfo:(NSDictionary *)shareInfo
                      complete:(void(^)(BOOL success))complete;
 
 /**
- * 微信分享
+ * 微信分享（直接调用，不需要获取分享信息）
  * @param func 埋点标识  必须
  * @param platform 分享平台 wechat
  * @param region 地区码  非必须

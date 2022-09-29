@@ -46,8 +46,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 微信登录
  * @param wxAppid 微信登录appid
+ * @param migrate_args 任意合法的 json 类型, 比如 string, nujber，账号迁移用的参数, 调用 CP account-query 及 account-queryandbind 接口时透传给 CP  非必须
+ * @param sign_fields 指定对登录成功后返回的特定字段, 使用 CPKEY 计算签名. CP 服务器可重新计算签名并与登录返回的签名比对, 作为对瑞雪登录数据的校验. 支持的字段包括: nickname, avatar, openid, region, sex, age, 计算签名的逻辑会对指定字段进行排序, 此处传参与顺序无关  非必须
  */
-- (void)loginReq_wWithWXAppid:(NSString *)wxAppid;
+- (void)loginReq_wWithWXAppid:(NSString *)wxAppid
+                 migrate_args:(id _Nullable)migrate_args
+                  sign_fields:(NSString * _Nullable)sign_fields;
 
 /**
  * 检测是否安装微信

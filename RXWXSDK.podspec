@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'RXWXSDK'
-  s.version          = '1.1.4'
+  s.version          = '1.1.5'
   s.summary          = 'ruixue wechat framework.'
 
 # This description is used to generate tags and improve searc results.
@@ -43,6 +43,6 @@ TODO: Add long description of the pod here.
   s.libraries = 'sqlite3', 'c++', 'c++abi', 'z'
 #
   s.platform = :ios, '9.0'
-  s.dependency 'WechatOpenSDK'
+  s.dependency 'WechatOpenSDK', '1.8.7'
   
 end

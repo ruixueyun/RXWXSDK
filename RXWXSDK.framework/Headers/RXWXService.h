@@ -71,6 +71,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (BOOL)handleOpenUrl:(NSURL *)url;
 
+/**
+ * 处理微信通过Universal Link启动App时传递的数据
+ * 需要在 application:continueUserActivity:restorationHandler:中调用。
+ * @param userActivity 启动第三方应用时系统API传递过来的userActivity
+ */
+- (BOOL)handleOpenUniversalLink:(NSUserActivity *)userActivity;
+
 @end
 
 NS_ASSUME_NONNULL_END

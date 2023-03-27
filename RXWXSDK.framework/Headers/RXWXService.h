@@ -65,7 +65,21 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isWXAppInstalled;
 
 /**
- * 处理微信通过Universal Link启动App时传递的数据
+ * 跳转到微信并打开小程序
+ * @param params 跳转参数
+ * ！username 小程序id    #NSString类型
+ * ！appid 微信appid    #NSString类型
+ * ！path 拉起小程序页面的可带参路径，不填默认拉起小程序首页，对于小游戏，可以只传入 query 部分，来实现传参效果，如：传入 "?foo=bar"。    #NSString类型
+ * ！miniProgramType 小程序类型  0正式版 1开发版 2体验版    #NSInteger类型
+ * ！ext 扩展信息    #NSString类型
+ * ！extDic 可存放图片等比较大的数据    #NSDictionary类型
+ * @param complete 回调，需要小程序接入跳转回到app的功能，否则回调不会执行
+ */
+- (void)openMiniProgram:(NSDictionary *)params
+               complete:(void(^)(NSString *extMsg))complete;
+
+/**
+ * 处理旧版微信通过URL启动App时传递的数据
  * 需要在 application:openURL:sourceApplication:annotation:或者application:handleOpenURL中调用。
  * @param url 微信启动第三方应用时传递过来的URL
  */

@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <RXSDK_Pure/RXSDK_Pure.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,6 +36,19 @@ NS_ASSUME_NONNULL_BEGIN
                      complete:(void(^)(BOOL success))complete;
 
 /**
+ * 微信分享New 返回具体错误码
+ * @param shareInfo 获取分享信息返回的内容  必须
+ * ！shareInfo参数说明：
+ * ！title 链接标题
+ * ！url 分享链接
+ * ！material_type 分享类型
+ * ！image 分享图片
+ * ！content 分享文案
+ */
+- (void)newShareToWWithShareInfo:(NSDictionary *)shareInfo
+                        complete:(void(^)(NSDictionary *response, RX_CommonRequestError *error))complete;
+
+/**
  * 微信分享（直接调用，不需要获取分享信息）
  * @param func 埋点标识  必须
  * @param platform 分享平台 wechat
@@ -48,6 +62,21 @@ NS_ASSUME_NONNULL_BEGIN
                transmits:(NSString * _Nullable)transmits
                      ext:(NSDictionary * _Nullable)ext
                 complete:(void(^)(BOOL success))complete;
+
+/**
+ * 微信分享（直接调用，不需要获取分享信息）New 返回具体错误码
+ * @param func 埋点标识  必须
+ * @param platform 分享平台 wechat
+ * @param region 地区码  非必须
+ * @param transmits 透传参数，原样返回， 请使用key=value形式，并对值使用urlencode，返回时会原样返回  非必须
+ * @param ext 扩展字段，拼接url用  非必须
+ */
+- (void)newShareToWWithFunc:(NSString *)func
+                   platform:(NSString *)platform
+                     region:(NSString *)region
+                  transmits:(NSString * _Nullable)transmits
+                        ext:(NSDictionary * _Nullable)ext
+                   complete:(void(^)(NSDictionary *response, RX_CommonRequestError *error))complete;
 
 /**
  * 微信登录

@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
                   region:(NSString *)region
                transmits:(NSString * _Nullable)transmits
                      ext:(NSDictionary * _Nullable)ext
-                complete:(void(^)(BOOL success))complete;
+                complete:(void(^)(BOOL success))complete DEPRECATED_MSG_ATTRIBUTE("use newShareToWWithFunc:platform:region:transmits:ext:complete instead");
 
 /**
  * 微信分享（直接调用，不需要获取分享信息）New 返回具体错误码
@@ -120,6 +120,14 @@ NS_ASSUME_NONNULL_BEGIN
  * @param userActivity 启动第三方应用时系统API传递过来的userActivity
  */
 - (BOOL)handleOpenUniversalLink:(NSUserActivity *)userActivity;
+
+/**
+ * 同步信息
+ * 调用后会跳转到微信授权登录，但不会走登录回调，同步信息通过此接口回调
+ * @param wxAppid 微信登录appid
+ */
+- (void)syncInfoWithWXAppid:(NSString *)wxAppid
+                   complete:(void(^)(NSDictionary *response, RX_CommonRequestError *error))complete;
 
 @end
 

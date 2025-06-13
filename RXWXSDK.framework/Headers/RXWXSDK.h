@@ -16,3 +16,4 @@ FOUNDATION_EXPORT const unsigned char RXWXSDKVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <RXWXSDK/PublicHeader.h>
 
 #import <RXWXSDK/RXWXService.h>
+#import <RXWXSDK/RXWXBusinessModel.h>

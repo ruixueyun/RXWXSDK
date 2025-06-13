@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <RXSDK_Pure/RXSDK_Pure.h>
+#import "RXWXBusinessModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -128,6 +129,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)syncInfoWithWXAppid:(NSString *)wxAppid
                    complete:(void(^)(NSDictionary *response, RX_CommonRequestError *error))complete;
+
+/**
+ * business
+ */
+- (void)openBusinessViewWithModel:(RXWXBusinessModel *)model;
 
 @end
 

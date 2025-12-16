@@ -135,6 +135,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)openBusinessViewWithModel:(RXWXBusinessModel *)model;
 
+/**
+ * business 含回调
+ */
+- (void)openBusinessViewWithModel:(RXWXBusinessModel *)model
+                         complete:(void(^)(NSDictionary *response, RX_CommonRequestError *error))complete;
 @end
 
 NS_ASSUME_NONNULL_END

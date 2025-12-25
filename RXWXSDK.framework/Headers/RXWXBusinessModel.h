@@ -12,6 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface RXWXBusinessModel : NSObject
 
 /**
+ * appid
+ */
+@property (nonatomic, strong) NSString *appid;
+/**
  * 业务类型
  */
 @property (nonatomic, strong) NSString *businessType;

@@ -111,6 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 处理旧版微信通过URL启动App时传递的数据
  * 需要在 application:openURL:sourceApplication:annotation:或者application:handleOpenURL中调用。
+ * 已调用 RXSDK 的 application:openURL:options: 或 scene:openURLContexts: 时无需再调用（SDK 内部自动转发）。
  * @param url 微信启动第三方应用时传递过来的URL
  */
 - (BOOL)handleOpenUrl:(NSURL *)url;
@@ -118,6 +119,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * 处理微信通过Universal Link启动App时传递的数据
  * 需要在 application:continueUserActivity:restorationHandler:中调用。
+ * 已调用 RXSDK 的 application:continueUserActivity:restorationHandler: 或 scene:continueUserActivity: 时无需再调用（SDK 内部自动转发）。
  * @param userActivity 启动第三方应用时系统API传递过来的userActivity
  */
 - (BOOL)handleOpenUniversalLink:(NSUserActivity *)userActivity;
